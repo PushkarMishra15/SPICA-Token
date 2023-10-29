@@ -12,7 +12,8 @@ contract MyTokenUpgradeable is Initializable, ERC20Upgradeable, OwnableUpgradeab
         __Ownable_init();
     }
 
-    function mint(address to, uint amount) external onlyOwner {
+    function mint(address to, uint amount) external onlyOwner {'
+         require(totalSupply() < 25000000000, "Total supply cannot exceed maximum supply");
         _mint(to, amount);
     }
 }
